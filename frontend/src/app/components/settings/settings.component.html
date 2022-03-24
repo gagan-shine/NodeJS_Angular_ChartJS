@@ -1,0 +1,58 @@
+		<!-- Page -->
+		<div class="page" >
+			<div class="page-main h-100">
+
+
+				<!-- Sidebar menu-->
+        <app-sidebar></app-sidebar>
+				<!-- Sidebar menu-->
+
+				<div class="app-content my-3 my-md-5">
+					<div class="side-app">
+            <div class="row">
+							<div class="col-md-12 col-lg-12">
+								<div class="card">
+									<div class="card-header">
+										<h3 class="card-title">Check Geo Details</h3>
+									</div>
+                  <div class="card-body">
+                    <div class="row mt-4">
+                      
+                        <div class="col-md-12">
+                            <div class="card-body">
+                              <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label for="name" class="form-label">IP Address</label>
+                                    <input type="text" class="form-control" placeholder="IP Address" [(ngModel)]="data.ip" >
+                                    
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="card-footer text-right">
+                              <button type="submit" class="btn btn-primary" (click)="get_geo_data(data.ip)">Get Geo Details</button>
+                            </div>
+                            <table class="response table">
+                              <tbody *ngIf="errorMsg && errorMsg!=''"><tr><td colspan="2" class="error">{{errorMsg}}</td></tr></tbody>
+                              <tbody *ngIf="!errorMsg || errorMsg==''">
+                                <tr *ngIf="geoData.ip"><th>IP</th><td>{{geoData.ip}}</td></tr>
+                                <tr *ngIf="geoData.city"><th>City</th><td>{{geoData.city}}</td></tr>
+                                <tr *ngIf="geoData.region"><th>Region</th><td>{{geoData.region}}</td></tr>
+                                <tr *ngIf="geoData.country"><th>Country</th><td>{{geoData.country}}</td></tr>
+                                <tr *ngIf="geoData.postal"><th>Postal Code</th><td>{{geoData.postal}}</td></tr>
+                                <tr *ngIf="geoData.timezone"><th>Timezone</th><td>{{geoData.timezone}}</td></tr>
+                              </tbody>
+                            </table>
+                        </div>
+                      
+                    </div>
+                  </div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+    <app-footer></app-footer>
+		</div>
